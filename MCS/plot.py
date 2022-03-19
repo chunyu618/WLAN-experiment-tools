@@ -11,12 +11,12 @@ def main():
     parser = argparse.ArgumentParser("description='Plot MCS'")
     parser.add_argument('-t', '--time', help="Period of experiment", type=int, default=60)
     parser.add_argument('-f', '--freq', help="Frequency of requesting", type=float, default=0.5)
-    parser.add_argument('-o', '--output', help="Output filename", type=str, required=True, nargs='+')
+    parser.add_argument('-i', '--input', help="Input filename", type=str, required=True, nargs='+')
     args = parser.parse_args()
 
     T = args.time
     freq = args.freq
-    filename_list = args.output
+    filename_list = args.input
 
     #print(filename_list)
     plot(filename_list, T, freq)
@@ -59,11 +59,9 @@ def plot(filename_list, T, freq):
                     
     
     x = np.linspace(0, T, duration)
-    print(x)
     # Plot TX and RX for every MAC address
     cnt = 0
     for MAC in bit_rate.keys():
-        print(len(bit_rate[MAC]['TX']))
         plt.plot(x, bit_rate[MAC]['TX'], label=MAC+'_TX', color=colors[cnt])
         plt.plot(x, bit_rate[MAC]['RX'], label=MAC+'RX', color=colors[cnt+1])
         cnt += 1
