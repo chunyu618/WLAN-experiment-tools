@@ -37,7 +37,7 @@ def monitor(duration, freq, hostname, filename):
     with open(filename, 'w') as f:
         results = []
         while(t < duration):
-            stdin, stdout, stderr = client.exec_command('iwinfo wlan0 assoclist')
+            stdin, stdout, stderr = client.exec_command('iwinfo wlan1 assoclist')
             
             data = stdout.read().decode("utf8")
             
