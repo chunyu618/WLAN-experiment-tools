@@ -82,7 +82,7 @@ def plot(filename_list, png_filename=''):
     #plt.axvline(x=100, ymin = 0, ymax = y_max_100/100, color='red', linestyle='--')
     #tag = input("Figure name: ")
     if png_filename != '':
-        plt.savefig("./figures/" + tag + ".png", dpi=600)
+        plt.savefig("./figures/" + png_filename + ".png", dpi=600)
     plt.show()
 
 

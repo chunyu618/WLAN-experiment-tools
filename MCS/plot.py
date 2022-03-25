@@ -12,22 +12,24 @@ def main():
     parser.add_argument('-t', '--time', help="Period of experiment", type=int, default=60)
     parser.add_argument('-f', '--freq', help="Frequency of requesting", type=float, default=0.5)
     parser.add_argument('-i', '--input', help="Input filename", type=str, required=True, nargs='+')
+    parser.add_argument('-o', '--output', help="Output filename", type=str, required=False, default='')
+
     args = parser.parse_args()
 
     T = args.time
     freq = args.freq
     filename_list = args.input
+    png_filename = args.output
 
     #print(filename_list)
-    plot(filename_list, T, freq)
+    plot(filename_list, T, freq, png_filename)
 
 
-def plot(filename_list, T, freq):
+def plot(filename_list, T, freq, png_filename=''):
     duration = T / freq
     bit_rate = {}
     deli = '--------------------'
-    MAC_address = ['F0:18:98:66:D9:9F', 'F4:06:16:85:95:86']
-    title = input("Title: ")
+    MAC_address = ['4C:1D:96:04:14:F6', '4C:1D:96:02:20:56']
     
     for filename in filename_list:
         with open(filename, 'r') as f:
@@ -69,13 +71,16 @@ def plot(filename_list, T, freq):
 
     ax = plt.gca()
     ax.set_ylim([0, 300])
-    plt.title(title)
+    if png_filename != '':
+        title = input("Title: ")
+        plt.title(title)
     plt.xlabel("Time (s)")
     plt.ylabel("MCS (Mbps)")
     plt.legend()
 
     #pngfile = input("filename: ")
-    #plt.savefig('./0222/figures/' + pngfile + '.png', dpi=600)
+    if png_filename != '':
+        plt.savefig('./figures/' + png_filename + '.png', dpi=600)
     plt.show()
 
 if __name__ == '__main__':
