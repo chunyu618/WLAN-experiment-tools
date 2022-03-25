@@ -18,18 +18,19 @@ def my_sum(vec):
 def main():
     parser = argparse.ArgumentParser("description='Plot Throughput'")
     parser.add_argument('-i', '--input', help="Input filename", type=str, required=True, nargs='+')
+    parser.add_argument('-o', '--output', help="Output filename", type=str, required=False, default='')
     args = parser.parse_args()
+    png_filename = args.output
 
     filename_list = args.input
 
     #print(filename_list)
-    plot(filename_list)
+    plot(filename_list, png_filename)
 
 
-def plot(filename_list):
+def plot(filename_list, png_filename=''):
     bit_rate = {}
     extension = ''
-    title = input("Title: ")
 
     for filename in filename_list:
         if 'json' in filename:
@@ -70,14 +71,18 @@ def plot(filename_list):
     ax = plt.gca()
     ax.set_ylim([0, 100])
 
-    plt.title(title)
+    if png_filename != '':
+        title = input("Title: ")
+        plt.title(title)
+
     plt.xlabel("Time (s)")
     plt.ylabel("Throughput (Mbps)")
     plt.legend()
     #plt.arrow(100, 80, 0, -20, width = 1, head_width = 5, length_includes_head=True)
     #plt.axvline(x=100, ymin = 0, ymax = y_max_100/100, color='red', linestyle='--')
     #tag = input("Figure name: ")
-    #plt.savefig("./figures/" + tag + ".png", dpi=600)
+    if png_filename != '':
+        plt.savefig("./figures/" + tag + ".png", dpi=600)
     plt.show()
 
 
