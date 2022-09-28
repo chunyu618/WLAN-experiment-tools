@@ -1,12 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-#cases = ["Max RSSI-AP142", "MAx RSSI-AP204", "Baseline-AP142", "Baseline-AP204", "Proposal-AP142", "Proposal-AP204"]
+# Method
 cases = ["Max RSSI", "Baseline", "DAW", "Proposed"]
+
+# Throughput of each method
 throughput = [20.85, 23.39, 27.534, 30.357]
+
+# Airtime usage of each method
 airtime = [688.452 + 192.454, 742.166 + 307.08, 746.524 + 477.286, 660.134 + 647.484]
-#airtime = [i * 2 for i in airtime]
 
 x = np.arange(len(throughput))
 bar_width = 0.3

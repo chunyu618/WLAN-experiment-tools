@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#cases = ["Max RSSI-AP142", "MAx RSSI-AP204", "Baseline-AP142", "Baseline-AP204", "Proposal-AP142", "Proposal-AP204"]
+# Method
 cases = ["Max RSSI", "Baseline", "DAW", "Proposed"]
 
 # List of station
@@ -13,6 +13,7 @@ groups = [[0, 0, 0, 0, 1, 0],
           [1, 1, 0, 0, 1, 0],
           [0, 0, 1, 0, 1, 0]]
 
+# Airtime per 500ms of each station for every method
 airtime = [[56.169, 61.207, 75.575, 75.594, 96.227, 75.681],
            [59.538, 72.948, 107.003, 107.028, 94.002, 84.104],
            [75.016, 74.400, 159.762, 127.960, 89.227, 85.540], 

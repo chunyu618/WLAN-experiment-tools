@@ -1,16 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-#cases = ["Max RSSI-AP142", "MAx RSSI-AP204", "Baseline-AP142", "Baseline-AP204", "Proposal-AP142", "Proposal-AP204"]
+# Method
 cases = ["Max RSSI", "Baseline", "DAW", "Proposed"]
 
+# List of station
 STAs = ["MAC1", "MAC2", "ASUS1", "ASUS2", "RAS1", "RAS2"]
+
+# Association for every method, 0 for AP142 and 1 for AP204
 groups = [[0, 0, 0, 0, 1, 0], 
           [1, 0, 0, 0, 1, 0],
           [1, 1, 0, 0, 1, 0],
           [0, 0, 1, 0, 1, 0]]
 
+# Throughput of every station for every method
 throughput = [[4.988, 4.756, 2.729, 2.788, 2.977, 2.612], 
               [4.993, 4.159, 4.194, 4.142, 2.982, 2.929], 
               [4.96, 4.945, 6.673, 4.992, 2.983, 2.981],

@@ -10,12 +10,12 @@ addr_dict = {}
 
 # Choose the station according the AP
 addr_dict['MAC1'] = 'F0-18-98-66-D9-9F'
-#addr_dict['MAC2'] = '3C-06-30-2B-1D-4C'
-addr_dict['ASUS1'] = '4C-1D-96-04-14-F6'
+addr_dict['MAC2'] = '3C-06-30-2B-1D-4C'
+#addr_dict['ASUS1'] = '4C-1D-96-04-14-F6'
 addr_dict['ASUS2'] = '4C-1D-96-02-20-56'
 #addr_dict['RAS1'] = 'DC-A6-32-F1-D1-B1'
-#addr_dict['RAS2'] = 'DC-A6-32-F1-CF-B6'
-numSTA = 3 # Number of the station
+addr_dict['RAS2'] = 'DC-A6-32-F1-CF-B6'
+numSTA = 4 # Number of the station
 K = 'MAC1' # Any station name in the list
 
 filename = sys.argv[1]
