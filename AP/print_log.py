@@ -168,12 +168,12 @@ for k in addr_dict:
         #for i in idx_len:
         #    print(i)
         print("[%s] Number of record: %d" % (k, len(avg_rate)))
-        print("[%s] Airtime: %f %f" % (k, statistics.mean(airtime_used), statistics.stdev(airtime_used)))
-        print("[%s] Rate: %f %f" % (k, statistics.mean(avg_rate), statistics.stdev(avg_rate)))
+        print("[%s] Airtime: average %f ms, stdev %f" % (k, statistics.mean(airtime_used) / 1000 , statistics.stdev(airtime_used) / 1000))
+        print("[%s] Rate: average %f Mbps, stdev %f" % (k, statistics.mean(avg_rate) / 1000, statistics.stdev(avg_rate) / 1000))
         #print(airtime_used)
-        print("[%s] Transmitted bytes: %f %f" % (k, statistics.mean(transmitted_bytes), statistics.stdev(transmitted_bytes)))
-        print("[%s] Transmitted pkts: %f %f" % (k, statistics.mean(transmitted_pkts), statistics.stdev(transmitted_pkts)))
-        print("[%s] Retransmitted pkts: %f %f" % (k, statistics.mean(retransmitted_pkts), statistics.stdev(retransmitted_pkts)))
+        print("[%s] Transmitted bytes: average %f, stdev %f" % (k, statistics.mean(transmitted_bytes), statistics.stdev(transmitted_bytes)))
+        print("[%s] Transmitted pkts: average %f, stdev %f" % (k, statistics.mean(transmitted_pkts), statistics.stdev(transmitted_pkts)))
+        print("[%s] Retransmitted pkts: average %f, stdev %f" % (k, statistics.mean(retransmitted_pkts), statistics.stdev(retransmitted_pkts)))
         #print("Retransmitted pkts: ",  retransmitted_pkts)
-        print("[%s] Retransmitted ratio: %f %f" % (k, statistics.mean(retrans_rate), statistics.stdev(retrans_rate)))
+        print("[%s] Retransmitted ratio: average %f, stdev %f" % (k, statistics.mean(retrans_rate), statistics.stdev(retrans_rate)))
 
