@@ -5,7 +5,10 @@ import numpy as np
 import argparse
 import statistics
 
-
+# This file is used to calculate multiple iperf result (json format), and print out the average throughput
+# Usage:
+# python3 cal_average.py -i yourfile1.json yourfile12.json
+# python3 cal_average.py -i *.json
 
 colors = ['#ed6a5a', '#f0a202', '#58a4b0', 'lime', 'cyan', 'slategray', 'navy', 'slateblue']
 dist = ['-35 ~ -40 dBm', '-60 dBm', '-75 dBm']

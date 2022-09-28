@@ -5,6 +5,11 @@ import numpy as np
 import argparse
 import statistics
 
+# This file is used to print out single iperf result (json format)
+# Usage:
+# python3 print_result -i yourfile.json
+
+
 def my_sum(vec):
     rev = 0
     for i in vec:
