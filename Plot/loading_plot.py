@@ -5,22 +5,38 @@ import matplotlib.pyplot as plt
 cases = ["Max RSSI", "Baseline", "DAW", "Proposed"]
 
 # List of station
-STAs = ["MAC1", "MAC2", "ASUS1", "ASUS2", "RAS1", "RAS2"]
+STAs = ["MAC1", "ASUS1", "ASUS2"]
 
 # Association for every method, 0 for AP142 and 1 for AP204
-groups = [[0, 0, 0, 0, 1, 0],
-          [1, 0, 0, 0, 1, 0],
-          [1, 1, 0, 0, 1, 0],
-          [0, 0, 1, 0, 1, 0]]
+groups = [[0, 0, 0],
+          [1, 0, 0],
+          [1, 0, 0],
+          [0, 1, 0]]
+
+# Bitrate of each station of each method
+bitrateList = [[77.496, 38.970, 38.886], 
+               [61.863, 38.917, 38.965], 
+               [74.702, 38.990, 38.229], 
+               [77.953, 38.932, 38.986]]
+
+# Retransmission ratio of each station of each method
+retransmissionRatioList = [[0.046804, 0.255770, 0.253963], 
+                           [0.091486, 0.208858, 0.196812], 
+                           [0.069507, 0.202221, 0.228708], 
+                           [0.001265, 0.256359, 0.170255]]
+
 
 # Effective bitrate of each station for every method
-effective_bitrate = [[76.329, 68.397, 29.630, 30.312, 28.912, 29.761],
-                     [71.815, 60.465, 30.611, 30.629, 29.092, 29.752],
-                     [69.469, 69.023, 32.002, 30.898, 29.420, 29.674], 
-                     [72.372, 74.824, 29.843, 30.932, 29.480, 29.761]]
+effective_bitrate = []
+
+for i in range(len(bitrateList)):
+    tmp = []
+    for j in range(len(bitrateList[i])):
+        tmp.append(bitrateList[i][j] / (1 + retransmissionRatioList[i][j])) 
+    effective_bitrate.append(tmp)
 
 # Traffic demand of each station 
-traffic_requirement = [5, 5, 10, 5, 3, 3]
+traffic_requirement = [10, 10, 10]
 loading = []
 
 for i in range(len(effective_bitrate)):
